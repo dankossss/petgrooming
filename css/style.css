@@ -1,0 +1,613 @@
+/* ПІДКЛЮЧЕННЯ ШРИФТІВ */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --primary: #8e9aaf; /* М'який сіро-блакитний (елегантний) */
+    --accent: #4a4e69;  /* Темно-сірий для акцентів */
+    --text: #222222;
+    --light: #f8f9fa;
+    --dark: #2d3436;
+}
+/* ЗАГАЛЬНІ НАЛАШТУВАННЯ */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: var(--text);
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ХЕДЕР ТА КРУГЛЕ ЛОГО */
+header {
+    background: white;
+    height: 80px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-contacts {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-contacts a:visited {
+    text-decoration: none;
+    color: var(--text) !important;
+    /* Колір з вашого :root */
+    transition: 0.3s;
+}
+
+.header-contacts a:hover {
+    color: var(--primary) !important;
+}
+
+.fa-telegram {
+    color: #0088cc !important;
+}
+
+.fa-viber {
+    color: #7360f2 !important;
+}
+
+.messenger-icons a:hover {
+    opacity: 0.8;
+}
+
+.phone-link {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.phone-link:hover {
+    color: var(--primary);
+}
+
+.messenger-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.messenger-icons a {
+    text-decoration: none;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+/* Кольори месенджерів */
+.fa-telegram {
+    color: #0088cc;
+}
+
+.fa-viber {
+    color: #7360f2;
+}
+
+.messenger-icons a:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+section {
+    scroll-margin-top: 100px;
+    /* Висота вашого хедера + невеликий запас */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-container {
+    position: relative;
+    width: 120px;
+}
+
+.round-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -20px;
+    object-fit: cover;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    margin: 0 15px;
+    font-weight: 600;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.social-links .fab {
+    font-size: 24px;
+    color: #000;
+    transition: 0.3s;
+}
+
+.social-links a:hover .fab {
+    transform: scale(1.1);
+    color: #E1306C;
+}
+
+/* ГОЛОВНИЙ ЕКРАН */
+.hero {
+    padding: 100px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, #8e9aaf22 100%);
+    /* 22 в кінці кольору робить його дуже прозорим і ніжним */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero ul {
+        text-align: left;
+    }
+
+/* ПОСЛУГИ */
+.services {
+    padding: 60px 0;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border-bottom: 5px solid var(--primary);
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ГАЛЕРЕЯ ТА СЛАЙДЕР */
+.gallery {
+    padding: 60px 0;
+    background: var(--light);
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.slider {
+    display: flex;
+    height: 450px;
+    transition: 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+    animation: fade 0.8s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.prev:hover,
+.next:hover {
+    background: var(--primary);
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.dots {
+    text-align: center;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--primary);
+    transform: scale(1.2);
+}
+
+/* ФУТЕР - ЦЕНТРУВАННЯ ТА ВИПРАВЛЕННЯ */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 60px 0 40px;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map {
+    flex: 1 1;
+    min-width: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+.footer-nav {
+    flex: 1 1;
+    min-width: 150px;
+}
+
+/* Ваш індивідуальний відступ для меню */
+.footer-nav ul li {
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+.info {
+    flex: 1 1;
+    min-width: 200px;
+}
+
+/* Навігація в футері */
+.footer-nav h3 {
+    margin-bottom: 15px;
+    color: white;
+    padding-left: 80px;
+}
+
+/* Додав padding і до заголовка для симетрії */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav ul li a {
+    text-decoration: none;
+    color: #ccc !important;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.footer-nav ul li a:visited,
+.footer-nav ul li a:active {
+    color: #ccc !important;
+}
+
+.footer-nav ul li a:hover {
+    color: var(--primary) !important;
+    padding-left: 5px;
+}
+
+/* Графік та Контакти */
+.info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.info p {
+    margin: 2px 0;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.contact-links {
+    margin-top: 20px;
+}
+
+.contact-links p {
+    margin: 5px 0;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #000 !important;
+    background: var(--primary);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact-links i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.address {
+    margin-top: 15px;
+    font-weight: bold;
+    color: white;
+    display: block;
+}
+
+/* ЛОГІКА СКЛАДАННЯ (ПЕРШИЙ ЕТАП: 1 зверху, 2 і 3 знизу) */
+@media (max-width: 950px) and (min-width: 769px) {
+    header {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        /* Дозволяємо логотипу бути зверху, якщо не влізе */
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    nav {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin: 0;
+    }
+
+    nav a {
+        margin: 0 10px;
+        /* Зменшуємо відступи між посиланнями з 15px до 10px */
+    }
+
+    .header-contacts {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /* Номер над іконками */
+        align-items: flex-end;
+        /* Вирівнювання по правому краю */
+        gap: 3px;
+    }
+
+    .phone-link {
+        font-size: 1rem;
+    }
+
+    .messenger-icons {
+        justify-content: flex-end;
+        /* Іконки теж вправо */
+        gap: 15px;
+    }
+
+    .map {
+        flex: 1 1 100%;
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .footer-nav {
+        flex: 1;
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .footer-nav ul li,
+    .footer-nav h3 {
+        white-space: nowrap;
+
+    }
+
+    .info {
+        flex: 1;
+        order: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-left: 50px;
+    }
+}
+
+
+
+/* ДРУГИЙ ЕТАП (МОБІЛЬНА ВЕРСІЯ: 1, 2, 3 в стовпчик) */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .phone-link {
+        display: block !important;
+        /* Гарантуємо, що номер видно */
+        font-size: 1.1rem;
+        /* Робимо номер трохи більшим для зручності */
+        text-align: center;
+    }
+
+    .header-contacts {
+        flex-direction: column;
+        /* Телефон над іконками */
+        gap: 8px;
+        width: 100%;
+        padding-left: 15%;
+    }
+
+    .round-logo {
+        position: absolute;
+        max-width: 80px;
+        max-height: 80px;
+        top: 50px;
+        left: -115px;
+    }
+
+    section {
+        scroll-margin-top: 80px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap- nowrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 0 7px;
+    }
+
+    .hero h1 {
+        margin-top: -10px;
+        font-size: 2rem;
+    }
+
+    .grid {
+        flex-direction: column;
+    }
+
+    .slider {
+        height: 250px;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .map,
+    .info,
+    .footer-nav {
+        order: unset;
+        margin: 0;
+    }
+
+    .footer-nav h3,
+    .info h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-left: 0;
+    }
+
+    .footer-nav ul li {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+        white-space: nowrap;
+
+    }
+
+    .contact-links p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px 0;
+    }
+
+    .contact-links a {
+        justify-content: center;
+    }
+
+    .map iframe {
+        height: 200px;
+    }
+}
